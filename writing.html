@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles2.css" />
+  </head>
+
+  <body>
+    <form id="submit-form">
+      <header>
+        <input
+          id="header-input"
+          type="text"
+          placeholder="제목을 입력하세요."
+          required
+        />
+      </header>
+      <main>
+        <textarea
+          id="content-input"
+          placeholder="내용을 입력하세요."
+          type="text"
+          required
+        ></textarea>
+        <label id="content-input-label" for="content-input"></label>
+        <input
+          id="footer-tag-input"
+          placeholder="#태그입력"
+          type="text"
+          required
+        />
+      </main>
+      <footer class="footer">
+        <div class="spacer"></div>
+        <div id="post-button">
+          <button type="submit">완료</button>
+        </div>
+      </footer>
+    </form>
+    <script>
+      document.getElementById("submit-form").addEventListener("submit", () => {
+        // 기본 폼 제출 동작을 방지
+        event.preventDefault();
+
+        // 각 입력 필드의 값을 가져옵니다.
+        let title = document.getElementById("header-input").value;
+        let content = document.getElementById("content-input").value;
+        let tags = document.getElementById("footer-tag-input").value;
+
+        // 콘솔에 결과를 출력합니다.
+        console.log({ title, content, tags });
+
+        // URL 매개변수 형태로 데이터를 조합합니다.
+        let queryParams = new URLSearchParams({
+          title: title,
+          content: content,
+          tags: tags,
+        }).toString();
+
+        // index.html 페이지로 리디렉션하면서 URL 매개변수를 포함시킵니다.
+        window.location.href = `home.html?${queryParams}`;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,157 @@
+header {
+  width: 100%;
+  height: 80px;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  width: 93%;
+  margin: 0 20px;
+  padding: 0 40px;
+}
+
+.header-icon {
+  height: 30px;
+  margin: 0 10px;
+}
+
+#post-header {
+  width: 100%;
+  margin: 80px 0;
+}
+
+#post-header-detail {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ebebeb;
+}
+
+#post-header-detail > * {
+  margin-right: 20px;
+}
+
+#post-content {
+  min-height: 370px;
+  padding: 20px 20px 50px;
+}
+
+#post-btn-container {
+  width: 130px;
+  display: flex;
+  flex-direction: row;
+  margin: 40px 0;
+  border-radius: 16px;
+  border: 1px solid #959595;
+  border-color: rgba(185, 185, 185, 0.5);
+  padding: 0 9px;
+}
+
+#post-btn-container > * {
+  margin: 5px;
+}
+
+.btn-container {
+  height: 15px;
+}
+
+#blog-description {
+  height: 200px;
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+#description-txt {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 0 0 34px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#profile {
+  width: 56px;
+  height: 56px;
+  margin: 32px 32px 0 0;
+  border-radius: 9px;
+}
+
+#reply {
+  border-bottom: 1px solid #ebebeb;
+  padding-bottom: 30px;
+  margin-bottom: 60px;
+}
+
+#reply-header {
+  display: flex;
+  border-bottom: 1px solid #ebebeb;
+  padding-bottom: 12px;
+}
+
+#reply-input[contenteditable="true"]:empty::before {
+  width: 90%;
+  content: attr(placeholder);
+  display: block;
+  color: #b1b1b1;
+}
+
+#reply-input {
+  width: 90%;
+  margin-top: 10px;
+}
+
+#reply-container {
+  display: flex;
+  flex-direction: row;
+  padding: 30px 0;
+}
+
+#reply-input-container {
+  border: solid 1px gray;
+  margin-bottom: 10px;
+  padding: 11px 15px;
+  min-height: 110px;
+  max-height: 400px;
+  border: 1px solid #d8d8d8;
+  border-radius: 6px;
+}
+
+#reply-profile {
+  border-radius: 50px;
+  width: 44px;
+  height: 44px;
+  margin-right: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+#reply-upload {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+#upload-btn {
+  width: 158px;
+  height: 50px;
+  border: 1px solid #e5e5e5;
+  cursor: not-allowed;
+}
+
+.tag {
+  font-size: small;
+  color: rgb(183, 181, 181);
+}

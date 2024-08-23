@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <header>
+      <img class="header-icon" src="./icons/bars.png" />
+      <h1>
+        <a href="./home.html"> 응가메이커스 </a>
+      </h1>
+      <img class="header-icon" src="./icons/search.png" />
+    </header>
+
+    <main>
+      <section id="post-header">
+        <div id="post-header-detail">
+          <span>박세준</span>
+          <span>2024.3.8. 17:20</span>
+          <span class="modify-button">수정</span>
+          <span class="delete-button">삭제</span>
+        </div>
+      </section>
+      
+      <section id="post-content">
+        <div id="post-btn-container">
+          <img class="btn-container" src="./icons/heart.png" />
+          <p style="line-height: 15px">공감</span>
+          <img class="btn-container" src="./icons/share-btn.png" />
+          <img class="btn-container" src="./icons/chart.png" />
+          <img class="btn-container" src="./icons/more-btn.png" />
+        </div>
+      </section>
+
+      <section id="reply">
+        <div id="reply-header">
+          <p>댓글</p>
+          <p>0</p>
+        </div>
+        <div id="reply-container">
+          <img id="reply-profile" src="./icons/tistory-profile.png" />
+          <div style="width: 100%">
+            <div id="reply-input-container">
+              <span>박세준</span>
+              <label for="reply-input"></label>
+              <div
+                id="reply-input"
+                contenteditable="true"
+                placeholder="내용을 입력하세요."
+              ></div>
+            </div>
+            <div id="reply-upload">
+              <button id="upload-btn">등록</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p id="footer-content">DESIGN BY TISTORY | 관리자</p>
+    </footer>
+    <script>
+      // URL에서 매개변수를 파싱합니다.
+      var queryParams = new URLSearchParams(window.location.search);
+      if (queryParams.get("title") != null) {
+        var title = queryParams.get("title");
+        var content = queryParams.get("content");
+        var tags = queryParams.get("tags");
+        var id = queryParams.get("id");
+
+      // 제목, 내용, 태그를 해당 HTML 요소에 설정합니다.
+    
+      let postHeader = `<h1>${title}</h1>`;
+      let postContent = `<p id="content">${content}</p>`;
+      let postTags = `<p id='tags' style="color: rgb(183, 181, 181)">${tags}</p>`;
+    
+      document.body
+        .querySelector("#post-header")
+        .insertAdjacentHTML("afterbegin", postHeader);
+    
+      document.body
+        .querySelector("#post-content")
+        .insertAdjacentHTML("afterbegin", postContent);
+    
+      document.body
+        .querySelector("#post-content")
+        .insertAdjacentHTML("beforeend", postTags);
+         
+      // 아래는 수정할 내용을 modifying으로 전달하는 기능
+      document.body.querySelector(".modify-button").onclick = () => {
+        var queryParams = new URLSearchParams({
+          modifyId: id,
+          title: title,
+          content: content,
+          tags: tags
+        }).toString();
+
+        window.location.href = `modifying.html?${queryParams}`;
+      }
+      }    
+
+      // 아래는 삭제할 index를 home으로 전달하는 기능
+      document.body.querySelector(".delete-button").onclick = () => {
+        var queryParams = new URLSearchParams({
+          deleteId: id
+        }).toString();
+
+        window.location.href = `home.html?${queryParams}`;
+      };
+     
+    </script>
+  </body>
+</html>
